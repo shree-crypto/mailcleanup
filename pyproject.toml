@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mailtidy"
+version = "0.1.0"
+description = "Review and clean old Gmail promotions"
+requires-python = ">=3.10"
+dependencies = ["google-api-python-client>=2", "google-auth-oauthlib>=1"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.9,<2"]
+
+[project.scripts]
+mailtidy = "mailtidy.cli:main"
+mailtidy-mcp = "mailtidy.mcp_server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
